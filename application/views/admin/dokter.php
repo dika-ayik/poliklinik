@@ -37,7 +37,12 @@
                             <h2>
                                 DATA DOKTER
                             </h2>
+                            <a href="<?php echo base_url('index.php/admin/form') ?>" class="btn bg-red  waves-effect pull-right">
+                                <i class="material-icons">add</i>
+                                <span>Tambahkan</span>
+                            </a>
                         </div>
+                        <br><br>
                         <div class="body">
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped data">

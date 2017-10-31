@@ -18,6 +18,10 @@ class Admin extends CI_Controller {
 	{
 		$this->load->view('admin/dokter');
 	}
+	public function form()
+	{
+		$this->load->view('admin/input-dokter');
+	}
 
 }
 
