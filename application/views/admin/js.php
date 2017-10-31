@@ -1,5 +1,6 @@
  <!-- Jquery Core Js -->
-    <script src="<?php echo base_url(); ?>plugins/jquery/jquery.min.js"></script>
+
+    
 
     <!-- Bootstrap Core Js -->
     <script src="<?php echo base_url(); ?>plugins/bootstrap/js/bootstrap.js"></script>
@@ -30,12 +31,22 @@
     <script src="<?php echo base_url(); ?>plugins/flot-charts/jquery.flot.categories.js"></script>
     <script src="<?php echo base_url(); ?>plugins/flot-charts/jquery.flot.time.js"></script>
 
+    <!-- Jquery DataTable Plugin Js -->
+    <script src="<?php echo base_url(); ?>plugins/jquery-datatable/jquery.dataTables.js"></script>
+
     <!-- Sparkline Chart Plugin Js -->
     <script src="<?php echo base_url(); ?>plugins/jquery-sparkline/jquery.sparkline.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+  $('.data').DataTable();
+});
+    </script>
 
     <!-- Custom Js -->
     <script src="<?php echo base_url(); ?>js/admin.js"></script>
     <script src="<?php echo base_url(); ?>js/pages/index.js"></script>
-
+    <script src="<?php echo base_url(); ?>js/jqueryUpload.min.js"></script>
+    
     <!-- Demo Js -->
     <script src="<?php echo base_url(); ?>js/demo.js"></script>

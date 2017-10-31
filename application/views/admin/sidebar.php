@@ -22,15 +22,7 @@
             <!-- #User Info -->
             <!-- Menu -->
             <div class="menu">
-                <ul class="list">
-                    <li class="header">MAIN NAVIGATION</li>
-                    <li class="active">
-                        <a href="javascript:void(0);">
-                            <i class="material-icons">home</i>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-                </ul>
+                <?php include 'menu-admin.php'; ?>
             </div>
             <!-- #Menu -->
             <!-- Footer -->
