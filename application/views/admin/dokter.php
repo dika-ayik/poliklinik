@@ -60,7 +60,7 @@
                                             <td>JANTUNG</td>
                                             <td>JANTUNG</td>
                                             <td>
-                                                <a href="#" class="btn btn-danger btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip" data-placement="left" title="Hapus data" onclick="delete()">
+                                                <a href="#" class="btn btn-danger btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip" data-placement="left" title="Hapus data">
                                                 <i class="material-icons">delete</i>
                                                 </a>
 
@@ -99,7 +99,9 @@
     <!-- SweetAlert Plugin Js -->
     <script src="<?php echo base_url(); ?>plugins/sweetalert/sweetalert.min.js"></script>
     <script type="text/javascript">
-        
+        function delete (){
+        swal("Good job!", "You clicked the button!", "success");
+        }
     </script>
     <!-- Jquery DataTable Plugin Js -->
     <script src="<?php echo base_url(); ?>plugins/jquery-datatable/jquery.dataTables.js"></script>
