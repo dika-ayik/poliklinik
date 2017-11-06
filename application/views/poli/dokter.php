@@ -18,6 +18,8 @@
     <link href="<?php echo base_url();?>css/style.css" rel="stylesheet">
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="<?php echo base_url(); ?>css/themes/all-themes.css" rel="stylesheet" />
+    <script src="<?php echo base_url(); ?>plugins/jquery/jquery.min.js"></script>
+
 </head>
 <body class="theme-red">
 	<?php include 'navigasi.php'; ?>
@@ -59,7 +61,7 @@
                                             <td><?php echo $u->nama_dokter; ?></td>
                                             <td><?php echo $u->spesialisasi; ?></td>
                                             <td>
-                                                <a href="#" class="btn btn-danger btn-circle waves-effect waves-circle waves-float hapus-member" data-id="1" data-toggle="tooltip" data-placement="left" title="Hapus data">
+                                                <a href="<?php echo base_url('index.php/poli/hapusdokter/').$u->id_dokter; ?>" class="btn btn-danger btn-circle waves-effect waves-circle waves-float confirmation " data-toggle="tooltip" data-placement="left" title="Hapus data" onClick="return ">
                                                 <i class="material-icons">delete</i>
                                                 </a>
 
@@ -78,7 +80,7 @@
             </div>
         </div>
     </section>
-	<script src="<?php echo base_url(); ?>plugins/jquery/jquery.min.js"></script>
+	
 
     <!-- Bootstrap Core Js -->
     <script src="<?php echo base_url(); ?>plugins/bootstrap/js/bootstrap.js"></script>
@@ -96,31 +98,25 @@
     <script src="<?php echo base_url(); ?>plugins/bootstrap-notify/bootstrap-notify.js"></script>
 
     <!-- SweetAlert Plugin Js -->
+
     <script src="<?php echo base_url(); ?>plugins/sweetalert/sweetalert.min.js"></script>
-    <script type="text/javascript">
-        $(document).on("click",".hapus-member",function(){
-            var id=$(this).attr("data-id");
-                swal({
-                    title:"Hapus Member",
-                    text:"Yakin akan menghapus member ini?",
-                    type: "warning",
-                    showCancelButton: true,
-                    confirmButtonText: "Hapus",
-                    closeOnConfirm: true,
-                },
-            function(){
-            $.ajax({
-                url:"<?php echo base_url('index.php/crud/hapusdokter'); ?>",
-                data:{id:id},
-                success: function(){
-                $("tr[data-id='"+id+"']").fadeOut("fast",function(){
-                $(this).remove();
-                });
-                }
-            });
-            });
+<script type="text/javascript">
+        $('.confirmation').on('click',function(e) {
+            e.preventDefault(); // Prevent the href from redirecting directly
+            var linkURL = $(this).attr("href");
+            warnBeforeRedirect(linkURL);
         });
-    </script>
+        function warnBeforeRedirect(linkURL) {
+            swal({
+              title: "Hapus Dokter?", 
+              type: "warning",
+              showCancelButton: true
+             }, function() {
+             // Redirect the user
+                window.location.href = linkURL;
+            });
+        }                                                
+</script>
     <!-- Jquery DataTable Plugin Js -->
     <script src="<?php echo base_url(); ?>plugins/jquery-datatable/jquery.dataTables.js"></script>
     <script src="<?php echo base_url(); ?>plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>

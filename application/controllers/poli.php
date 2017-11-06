@@ -26,8 +26,9 @@ class Poli extends CI_Controller {
 	}
 	public function hapusdokter($id)
 	{
-		$where = array('id_dokter' =>$id);
-		;
+		$where = array('id_dokter' =>$id );
+		$this->mod->delete('dokter',$where);
+		redirect('poli/dokter');
 	}
 
 }
