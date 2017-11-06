@@ -10,7 +10,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url('index.php/admin/dokter'); ?>">
+                        <a href="<?php echo base_url('index.php/poli/dokter'); ?>">
                             <i class="material-icons">assignment</i>
                             <span>Dokter</span>
                         </a>

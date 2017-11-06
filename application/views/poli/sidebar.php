@@ -22,7 +22,7 @@
             <!-- #User Info -->
             <!-- Menu -->
             <div class="menu">
-                <?php include 'menu-admin.php'; ?>
+                <?php include 'menu-poli.php'; ?>
             </div>
             <!-- #Menu -->
             <!-- Footer -->
