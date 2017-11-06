@@ -7,6 +7,7 @@ class Poli extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->helper('url');
+		$this->load->model('mod');
 	}
 
 	public function index()
@@ -16,11 +17,17 @@ class Poli extends CI_Controller {
 
 	public function dokter()
 	{
-		$this->load->view('poli/dokter');
+		$data['user']=$this->mod->tampil('dokter')->result();
+		$this->load->view('poli/dokter',$data);
 	}
 	public function form()
 	{
 		$this->load->view('poli/input-dokter');
+	}
+	public function hapusdokter($id)
+	{
+		$where = array('id_dokter' =>$id);
+		;
 	}
 
 }

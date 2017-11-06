@@ -46,20 +46,20 @@
                                             <th>FOTO</th>
                                             <th>NAMA</th>
                                             <th>SPESIALISASI</th>
-                                            <th>POLI</th>
                                             <th>AKSI</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        
+                                        <?php 
+                                        $no = 1; 
+                                        foreach ($user as $u) { ?>
                                         <tr>
-                                            <td>D001</td>
-                                            <td>FOTO</td>
-                                            <td>RYAN</td>
-                                            <td>JANTUNG</td>
-                                            <td>JANTUNG</td>
+                                            <td><?php echo $no++; ?></td>
+                                            <td>no pict</td>
+                                            <td><?php echo $u->nama_dokter; ?></td>
+                                            <td><?php echo $u->spesialisasi; ?></td>
                                             <td>
-                                                <a href="#" class="btn btn-danger btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip" data-placement="left" title="Hapus data">
+                                                <a href="#" class="btn btn-danger btn-circle waves-effect waves-circle waves-float hapus-member" data-id="1" data-toggle="tooltip" data-placement="left" title="Hapus data">
                                                 <i class="material-icons">delete</i>
                                                 </a>
 
@@ -68,7 +68,7 @@
                                                 </a>
                                             </td>
                                         </tr>
-                                        
+                                        <?php } ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -98,9 +98,28 @@
     <!-- SweetAlert Plugin Js -->
     <script src="<?php echo base_url(); ?>plugins/sweetalert/sweetalert.min.js"></script>
     <script type="text/javascript">
-        function delete (){
-        swal("Good job!", "You clicked the button!", "success");
-        }
+        $(document).on("click",".hapus-member",function(){
+            var id=$(this).attr("data-id");
+                swal({
+                    title:"Hapus Member",
+                    text:"Yakin akan menghapus member ini?",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonText: "Hapus",
+                    closeOnConfirm: true,
+                },
+            function(){
+            $.ajax({
+                url:"<?php echo base_url('index.php/crud/hapusdokter'); ?>",
+                data:{id:id},
+                success: function(){
+                $("tr[data-id='"+id+"']").fadeOut("fast",function(){
+                $(this).remove();
+                });
+                }
+            });
+            });
+        });
     </script>
     <!-- Jquery DataTable Plugin Js -->
     <script src="<?php echo base_url(); ?>plugins/jquery-datatable/jquery.dataTables.js"></script>
